@@ -20,4 +20,18 @@ python prepare_data.py --dataset PATH_TO_DATASET --annotation tagall
 
 ## Training
 
-Example usage, inside *
+The within-dataset scores for each task is output as well as the best performing checkpoint. Example usage, inside *bert_multitask_classifier* repo:
+
+
+```python
+python train.py --datafolder PATH_TO_TAGGED_DATA --modelpath PATH_TO_SAVE_MODEL 
+
+```
+## Cross-dataset evaluation
+
+The saved model can be further evaluated on the test sets of other datasets. Example usage:
+
+```python
+python cross_dataset_test.py --model DATASET_USED_FOR_TRAINING
+```
+The script gets the named of the dataset used to train the model. It outputs the predictions for each test inside *inferences* repo and the Accuracy and Macro-F1 scores inside *final_results* folder. 
